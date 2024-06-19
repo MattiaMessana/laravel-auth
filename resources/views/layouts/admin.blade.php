@@ -63,6 +63,16 @@
                   <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                 </a>
               </li>
+              <li>
+                  <a class="nav-link text-white" href="{{ route('admin.project.index')}}">
+                   <i class="fa-solid fa-circle-info fa-lg fa-fw"></i> Proggetti
+                  </a>
+              </li>
+              <li>
+                  <a class="nav-link text-white" href="{{ route('admin.project.create')}}">
+                    <i class="fa-solid fa-plus fa-lg fa-fw"></i> Nuovo Proggetto
+                  </a>
+              </li>
             </ul>
 
 

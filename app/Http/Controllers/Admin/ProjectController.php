@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projectArray = Project::all();
-        return view('admin.project', compact('projectArray'));
+        return view('admin.project-index', compact('projectArray'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.project-create');
     }
 
     /**
