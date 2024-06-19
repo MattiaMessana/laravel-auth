@@ -9,17 +9,41 @@
 
             <div class="my-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input class="form-control" type="text" name="title" id="title">
+                <input value="{{ old('title') }}" class="form-control 
+                @error('title')
+                    is-invalid
+                @enderror" 
+                type="text" 
+                name="title" id="title">
+                @error('title')
+                    <div id="title-error" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="my-3">
                 <label for="description" class="form-label">Descrizione</label>
-                <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                <textarea class="form-control @error('description')
+                    is-invalid
+                @enderror" name="description" id="description" cols="30" rows="10">{{old('description')}}</textarea>
+                @error('description')
+                <div id="description-error" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             <div class="my-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" name="slug" id="slug">
+                <input type="text" class="form-control @error('slug')
+                    is-invalid
+                @enderror" name="slug" id="slug">
+                @error('slug')
+                <div id="slug-error" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
