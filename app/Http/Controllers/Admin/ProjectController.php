@@ -30,15 +30,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $project = Project::create($data);
+        return redirect()->route('admin.project.show', ['project' => $project->id]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        //
+        return view('admin.project-show' , compact('project'));
     }
 
     /**
