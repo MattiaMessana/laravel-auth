@@ -36,4 +36,5 @@
                 @endforeach
             </tbody>
     </div>
+    @include('admin.project.partials.delete-project-modal')
 @endsection

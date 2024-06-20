@@ -1,3 +1,4 @@
+
 <form class="delete-form" action="{{route('admin.project.destroy', ['project' => $project->slug])}}" method="POST">
     @csrf
     @method('DELETE')

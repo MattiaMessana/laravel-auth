@@ -37,5 +37,5 @@
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
         </form>
     </div>
-    @include('admin.project.partials.delete-project-modal')
+    
 @endsection
