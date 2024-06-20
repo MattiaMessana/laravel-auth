@@ -22,7 +22,7 @@ if (deleteBtns.length > 0) {
             //preleviamo titolo dal data attribute del bottone
             const projectTitle = btn.dataset.projectTitle;
             //inserisco dati nel modale 
-            document.getElementById('modal-title').innerHTML = `Sati per cancelare ${projectTitle}`;
+            document.getElementById('modal-title').innerHTML = `Stai per cancelare ${projectTitle}`;
             //ascolto sul bottone del modal 
             document.getElementById('modal-delete-btn').addEventListener('click', function() {
                 btn.parentElement.submit();
