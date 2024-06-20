@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -32,8 +33,11 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->all();
-        $project = Project::create($data);
-        return redirect()->route('admin.project.show', ['project' => $project->id]);
+        $project = new Project();
+        $project->fill($data);
+        $project->slug = Str::slug($request->title);
+        $project->save();
+        return redirect()->route('admin.project.show', ['project' => $project->slug]);
     }
 
     /**

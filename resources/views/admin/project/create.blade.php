@@ -33,19 +33,7 @@
                 </div>
                 @enderror
             </div>
-
-            <div class="my-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control @error('slug')
-                    is-invalid
-                @enderror" name="slug" id="slug">
-                @error('slug')
-                <div id="slug-error" class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-
+            
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
         </form>
     </div>

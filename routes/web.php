@@ -15,7 +15,7 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
-        Route::resource('project', ProjectController::class);
+        Route::resource('project', ProjectController::class)->parameters(['project' => 'project:slug']);
     });
 
 require __DIR__.'/auth.php';

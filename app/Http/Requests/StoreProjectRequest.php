@@ -24,7 +24,6 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:10'],
-            'slug' => ['required'],
         ];
     }
 
@@ -39,7 +38,6 @@ class StoreProjectRequest extends FormRequest
             'title.min' => 'Il titolo deve contenre almeno 3 caratteri',
             'description.required' => 'Descrizione non può essere vuoto',
             'description.min' => 'Descrizione deve contenre almeno 10 caratteri',
-            'slug.required' => 'Slug non può essere vuoto',
         ];
     }
 }
