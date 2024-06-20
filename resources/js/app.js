@@ -8,7 +8,6 @@ import.meta.glob(["../img/**"]);
 //trovo tutti i bottoni di cancellazzione 
 const deleteBtns = document.querySelectorAll('.delete-form button');
 
-console.log(deleteBtns);
 if (deleteBtns.length > 0) {
     //per ogni bottone ascolta il clik 
     deleteBtns.forEach((btn) => {
