@@ -35,9 +35,9 @@ class StoreProjectRequest extends FormRequest
     public function messages() {
         return [
             'title.required' => 'Il titolo non può essere vuoto',
-            'title.min' => 'Il titolo deve contenre almeno 3 caratteri',
+            'title.min' => 'Il titolo deve contenere almeno 3 caratteri',
             'description.required' => 'Descrizione non può essere vuoto',
-            'description.min' => 'Descrizione deve contenre almeno 10 caratteri',
+            'description.min' => 'Descrizione deve contenere almeno 10 caratteri',
         ];
     }
 }

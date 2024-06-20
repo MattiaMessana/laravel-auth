@@ -3,6 +3,13 @@
 @section('content')
     <div class="mt-4">
         <h2>Lista Proggetti</h2>
+
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{session('message')}}
+            </div>
+        @endif
+
         <table class="table">
             <thead class="striped">
               <tr>
@@ -11,6 +18,7 @@
                 <th scope="col">Descrizione</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Dettagli</th>
+                <th scope="col">Canc</th>
               </tr>
             </thead>
             <tbody>
@@ -20,7 +28,10 @@
                         <td>{{ $project->title}}</td>
                         <td>{{ $project->description}}</td>
                         <td>{{ $project->slug}}</td>
-                        <td> <a href="{{route('admin.project.show', $project)}}"><i class="fa-solid fa-circle-info fa-lg fa-fw"></i></a> </td>
+                        <td> <a href="{{route('admin.project.show', $project)}}"><i class="fa-solid fa-ellipsis-vertical fa-2xl"></i></a></td>
+                        <td>
+                            @include('admin.project.partials.delete-project-form')
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
