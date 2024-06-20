@@ -8,12 +8,14 @@ import.meta.glob(["../img/**"]);
 //trovo tutti i bottoni di cancellazzione 
 const deleteBtns = document.querySelectorAll('.delete-form button');
 
-if (deleteBtns > 0) {
+console.log(deleteBtns);
+if (deleteBtns.length > 0) {
     //per ogni bottone ascolta il clik 
     deleteBtns.forEach((btn) => {
-        btn.addEventListener('click', function (event) {
+       btn.addEventListener('click', function (event) {
             //preveniamo ricaricamento pagina 
             event.preventDefault();
+
             //creo modale in js 
             const modal = new bootstrap.Modal(
                 document.getElementById('delete-modal')
@@ -27,7 +29,7 @@ if (deleteBtns > 0) {
                 btn.parentElement.submit();
             });
             //mostro il modale 
-            modal.show(); 
+            modal.show();
         })
     })
 }

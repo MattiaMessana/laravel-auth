@@ -18,6 +18,7 @@
                 <th scope="col">Descrizione</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Dettagli</th>
+                <th scope="col">Mod</th>
                 <th scope="col">Canc</th>
               </tr>
             </thead>
@@ -29,9 +30,8 @@
                         <td>{{ $project->description}}</td>
                         <td>{{ $project->slug}}</td>
                         <td> <a href="{{route('admin.project.show', $project)}}"><i class="fa-solid fa-ellipsis-vertical fa-2xl"></i></a></td>
-                        <td>
-                            @include('admin.project.partials.delete-project-form')
-                        </td>
+                        <td><a class="btn btn-warning" href="{{route('admin.project.edit', $project )}}"><i class="fa-solid fa-marker fa-lg"></i></a></td>
+                        <td>@include('admin.project.partials.delete-project-form')</td>
                     </tr>
                 @endforeach
             </tbody>
