@@ -58,18 +58,18 @@
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.dashboard') }}">
                   <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                 </a>
               </li>
               <li>
-                  <a class="nav-link text-white" href="{{ route('admin.project.index')}}">
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.project.index' ? 'bg-secondary' : '' }}" href="{{ route('admin.project.index')}}">
                    <i class="fa-solid fa-circle-info fa-lg fa-fw"></i> Proggetti
                   </a>
               </li>
               <li>
-                  <a class="nav-link text-white" href="{{ route('admin.project.create')}}">
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.project.create' ? 'bg-secondary' : '' }}" href="{{ route('admin.project.create')}}">
                     <i class="fa-solid fa-plus fa-lg fa-fw"></i> Nuovo Proggetto
                   </a>
               </li>
