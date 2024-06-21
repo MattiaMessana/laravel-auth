@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -22,7 +23,8 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3', 'unique:projects'],
+            // nel caso di dati unique in modifica per evitare errori possiamo inserire rule::unique per il title ci permette di modificare gli altri campi eccetto il titolo  che è unique 
+            'title' => ['required', 'min:3', Rule::unique('projects')->ignore($this->project)],
             'description' => ['required', 'min:10'],
         ];
     }
