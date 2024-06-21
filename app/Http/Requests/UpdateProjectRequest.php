@@ -22,7 +22,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3'],
+            'title' => ['required', 'min:3', 'unique:projects'],
             'description' => ['required', 'min:10'],
         ];
     }
@@ -35,6 +35,7 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title.required' => 'Il titolo non può essere vuoto',
             'title.min' => 'Il titolo deve contenere almeno 3 caratteri',
+            'title.unique' => 'Attenzione il titolo è già esistente, generare un nuovo titolo',
             'description.required' => 'Descrizione non può essere vuoto',
             'description.min' => 'Descrizione deve contenere almeno 10 caratteri',
         ];
