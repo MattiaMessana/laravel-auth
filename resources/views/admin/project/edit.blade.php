@@ -34,6 +34,11 @@
                 @enderror
             </div>
 
+            <div class="my_3">
+                <label for="cover_img" class="form-label">Poster</label>
+                <input type="file" name="cover_img" id="cover_img" class="form-control" value="{{ old('cover_img') ?? $project->cover_img }}">
+            </div>
+
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
         </form>
     </div>
