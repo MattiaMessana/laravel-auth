@@ -34,12 +34,17 @@
                 @enderror
             </div>
 
-            <div class="my_3">
+            <div class="my-3">
                 <label for="cover_img" class="form-label">Poster</label>
                 <input type="file" name="cover_img" id="cover_img" class="form-control" value="{{ old('cover_img') ?? $project->cover_img }}">
             </div>
 
-            <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
+            <div class="my-3">
+                <h4>Preview Immagine</h4>
+                <img src="{{ asset('strorage/' . $project->cover_img)}}" alt="{{ $project->title }}">
+            </div>
+
+            <button class="btn btn-success mt" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
         </form>
     </div>
 @endsection
