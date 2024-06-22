@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -35,6 +36,15 @@ class ProjectController extends Controller
     {
         // $data = $request->all();
         $data = $request->validated();
+
+        //controlliamo se esiste il file cover_img nel request
+        if ($request->hasFile('cover_img')) {
+            //salvo file nella cartella storage
+            $image_path = Storage::put('project_img' , $request->cover_img);
+            //salvo path del file da inserire nel databade
+            $data['cover_img'] = $image_path;
+        }
+
         $project = new Project();
         $project->fill($data);
         $project->slug = Str::slug($request->title);
@@ -66,6 +76,20 @@ class ProjectController extends Controller
         // $data = $request->all();
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
+
+        //controllo se nel request c'è il file dell'imaggine
+        if ($request->hasFile('cover_img')) {
+            //controllo se il projects aveva un immagine
+            if ($project->cover_img) {
+                //cancello vecchia immagine
+                Storage::delete($project->cover_img);
+            }
+            //salvo nuova immagine
+            $image_path = Storage::put('project_img' , $request->cover_img);
+            //salvo il nuvo path nel database
+            $data['cover_img'] = $image_path;
+        }
+
         $project->update($data);
 
         return redirect()->route('admin.project.show' , ['project' => $project->slug]);
@@ -76,6 +100,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        //se il project ha immagine la cancelliamo dallo storage
+        if ($project->cover_img) {
+            Storage::delete($project->cover_img);
+        }
         $project->delete();
         return redirect()->route('admin.project.index')->with('message', 'Proggetto ' .$project->title.' è stato eliminato');
     }

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-3">
         <h2>Modifica Proggetto</h2>
-        <form action="{{ route('admin.project.update' , $project )}}" method="POST">
+        <form action="{{ route('admin.project.update' , $project )}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -41,7 +41,7 @@
 
             <div class="my-3">
                 <h4>Preview Immagine</h4>
-                <img src="{{ asset('strorage/' . $project->cover_img)}}" alt="{{ $project->title }}">
+                <img src="{{ asset('storage/' . $project->cover_img) }}" alt="{{ $project->title }}">
             </div>
 
             <button class="btn btn-success mt" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
