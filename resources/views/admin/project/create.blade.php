@@ -4,7 +4,7 @@
     <div class="container">
         <h2 class="mt-4">Inserisci un nuovo proggetto</h2>
 
-        <form action="{{ route('admin.project.store')}}" method="POST">
+        <form action="{{ route('admin.project.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="my-3">
@@ -34,7 +34,12 @@
                 @enderror
             </div>
 
-            <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
+            <div class="my_3">
+                <label for="cover_img" class="form-label">Poster</label>
+                <input type="file" name="cover_img" id="cover_img" class="form-control">
+            </div>
+
+            <button class="btn btn-success mt-2" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
         </form>
     </div>
     
