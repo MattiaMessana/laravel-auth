@@ -6,6 +6,7 @@
         <ul>
             <li class="mb-3"><strong>Titolo:</strong> {{$project->title}}</li>
             <li class="mb-3"><strong>Descrizione:</strong> {{$project->description}}</li>
+            <li class="mb-3"><img src="{{ asset('storage/' . $project->cover_img)}}" alt="{{ $project->title }}"></li>
             <li class="mb-3"><strong>Slug:</strong> {{$project->slug}}</li>
         </ul>
     </div>
