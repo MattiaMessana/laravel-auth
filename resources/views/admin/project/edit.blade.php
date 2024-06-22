@@ -41,10 +41,10 @@
 
             <div class="my-3">
                 <h4>Preview Immagine</h4>
-                <img src="{{ asset('storage/' . $project->cover_img) }}" alt="{{ $project->title }}">
+                <img class="w-25" src="{{ asset('storage/' . $project->cover_img) }}" alt="">
             </div>
 
-            <button class="btn btn-success mt" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
+            <button class="btn btn-success mt-2" type="submit"><i class="fa-solid fa-floppy-disk fa-lg"></i></button>
         </form>
     </div>
 @endsection
