@@ -92,7 +92,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        return redirect()->route('admin.project.show' , ['project' => $project->slug]);
+        return redirect()->route('admin.project.show' , ['project' => $project->slug])->with('message' , 'Proggetto ' .$project->title. ' è stato modificato');
     }
 
     /**
