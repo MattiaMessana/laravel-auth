@@ -15,9 +15,10 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projectArray = Project::all();
+        $perPage = $request->per_page ? $request->per_page : 10;
+        $projectArray = Project::paginate($perPage)->appends(['per_page' => $perPage]);
         return view('admin.project.index', compact('projectArray'));
     }
 
